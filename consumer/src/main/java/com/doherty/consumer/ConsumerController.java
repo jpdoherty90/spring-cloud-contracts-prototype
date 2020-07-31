@@ -14,7 +14,7 @@ public class ConsumerController {
         this.restTemplate = restTemplate;
     }
 
-    @GetMapping("/message/{personId}")
+    @GetMapping("/person/{personId}")
     String getPerson(@PathVariable("personId") Long personId) {
         Person person = this.restTemplate.getForObject("http://localhost:8000/person/{personId}", Person.class, personId);
         return "PERSON: " + person.getName();
